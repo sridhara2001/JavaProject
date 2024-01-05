@@ -19,11 +19,11 @@ class bankApp{
 	Scanner sc = new Scanner(System.in);
 	public void deposite() {
 		int depAmount;
-		System.out.println("Enter Amount to be deposited");
+		System.out.println("Enter Amount to Deposite");
 		depAmount = sc.nextInt();
 		if(depAmount>0) {
 			balance=balance+depAmount;
-			System.out.println("Amount is deposited and new balance amount is "+balance);
+			System.out.println("Amount is Deposited and New balance amount is : "+balance);
 		} else {
 			System.out.println("Enter Valid Amount");
 		}
@@ -58,15 +58,20 @@ public class Project1 {
 			System.out.println("Enter password to continue");
 			String enteredPassword = sc.next();
 			if(enteredPassword.equals(bankApp.getPassword())) {
-				System.out.println("Welcome To Our Online Banking App");
-				System.out.println(enteredUsername+" is Signed in");
+				System.out.println("Welcome To Online Banking");
+				System.out.println("You are Signed in as "+enteredUsername);
 				char ch;
 				do {
 					System.out.println("Select an option to continue");
 					System.out.println("1)Deposite 2)Withdraw 3)Balance");
 					int option = sc.nextInt();
 					switch(option){
-						case 1:obj.deposite();
+						case 1: char ch1;
+								do {
+									obj.deposite();
+									System.out.println("Do you want to Deposite Again :Y/N");
+									ch1 = sc.next().charAt(0);
+								}while(ch1=='Y');
 						break;
 						case 2:obj.withdraw();
 						break;
@@ -74,18 +79,16 @@ public class Project1 {
 						break;
 						default:System.out.println("Invalid Option");
 					}
-					System.out.println("Do you want to continue :Y/N");
+					System.out.println("Do you want to Continue :Y/N");
 					ch = sc.next().charAt(0);
 				}while(ch=='Y');
 				
-				System.out.println("Thanks!!");
+				System.out.println("Thank You For Choosing Us!!");
 			} else {
-				System.out.println("You have enetred wrong Password");
+				System.out.println("You have entered wrong Password");
 			}
 		} else {
 			System.out.println("Enter Valid Username");
 		}
-
 	}
-
 }
